@@ -31,7 +31,19 @@
             </form>
         </div>
 
-        
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-painel toggle-left">
+                    <h1>Bem-Vindo de volta</h1>
+                    <button type="submit" class="hidden" id="login" name="change">Login</button>
+                </div>
+                
+                <div class="toggle-painel toggle-right">
+                    <h1>Ola,ADM</h1>
+                    <button type="submit" class="hidden" id="cadastro" name="changed">Cadastrar</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
