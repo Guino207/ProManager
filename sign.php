@@ -1,46 +1,64 @@
+<?php
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro/Login</title>
+    <link rel="stylesheet" href="./assets/css/sign.css">
 </head>
 <body>
     <div class="container" id="container">
-        <div class="insira">
+         <div class="insira-container user-face">
             <form action="" method="post">
                 <h1>Cadastro</h1>
-                <input type="text" placeholder="Digite o seu nome" name="name">
-                <input type="email" placeholder="Digite o seu email" name="email">
-                <input type="password" placeholder="Digite a sua password" name="senha">
-                <input type="password" placeholder="Confirme a sua password" name="password">
+                <?php if(isset($mensagem)): ?>
+                    <p style="color: red; text-align: center;"><?php echo $mensagem; ?></p>
+                <?php endif; ?>
+                <?php if(isset($error) && isset($_POST['cadastrar'])): ?>
+                    <p style="color: red; text-align: center;"><?php echo $error; ?></p>
+                <?php endif; ?>
+                <input type="text" placeholder="Digite o nome..." name="name" required>
+                <input type="email" placeholder="Digite o e-mail" name="email" required>
+                <input type="password" placeholder="Digite a senha" name="senha" required>
+                <input type="password" name="password" placeholder="Confirme a senha" required>
+                
 
-
+                
                 <button type="submit" name="cadastrar">Cadastrar</button>
             </form>
         </div>
 
-        <div class="insira">
+        
+        <div class="insira-container login-face">
             <form action="" method="post">
                 <h1>Login</h1>
-                <input type="email" placeholder="Digite o seu email" name="email">
-                <input type="password" placeholder="Digite a sua password" name="password">
+                <?php if(isset($error) && isset($_POST['login'])): ?>
+                    <p style="color: red; text-align: center;"><?php echo $error; ?></p>
+                <?php endif; ?>
+                <input type="email" placeholder="Digite o e-mail" name="email" required>
+                <input type="password" placeholder="Digite a senha" name="password" required>
+                
 
-
-                <button type="submit" name="login">Acessar</button>
+                
+                <button type="submit" name="login">Enviar</button>
+                <a href="#">Esqueceu a senha?</a>
             </form>
         </div>
-
+        
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-painel toggle-left">
-                    <h1>Bem-Vindo de volta</h1>
-                    <button type="submit" class="hidden" id="login" name="change">Login</button>
+                    <h1>Bem-Vindo de volta!</h1>
+                    <button class="hidden" id="login">login</button>
                 </div>
-                
                 <div class="toggle-painel toggle-right">
-                    <h1>Ola,ADM</h1>
-                    <button type="submit" class="hidden" id="cadastro" name="changed">Cadastrar</button>
+                    <h1>Olá, ADM!</h1>
+                    <button class="hidden" id="cadastro">cadastrar</button>
                 </div>
             </div>
         </div>
