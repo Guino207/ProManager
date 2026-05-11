@@ -4,7 +4,7 @@ session_start();
 require_once 'conectar.php';
 
 error_reporting(E_ALL);
-init_set('display_errors', 1);
+ini_set('display_errors', 1);
 
 
 if($_POST['cadastrar']){
@@ -21,14 +21,14 @@ if($_POST['cadastrar']){
         $has = password_hash($senha ,PASSWORD_DEFAULT);
 
         $sql = "INSERT INTO user(name,email,password) VALUES(?,?,?)";
-        $stmt = $mana->prepare($sql);
+        $stmt = $manager->prepare($sql);
         $stmt->bind_param("sss",$name,$email,$has);
 
         if($stmt->execute){
             header("Location: index.php");
             exit();
         }else{
-            $mensagem = "Erro " .$mana->error;
+            $mensagem = "Erro " .$manager->error;
         }
         $stmt->close();
     }
@@ -39,7 +39,7 @@ if(isset($_POST['login'])){
     $password = $_POST['password'];
 
     $sql = "SELECT id,name, email password FROM user WHERE email = ?";
-    $stmt = $mana->prepare($sql);
+    $stmt = $manager->prepare($sql);
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();

@@ -6,9 +6,6 @@ $password = "mysql123";
 
 $manager = new mysqli($host, $user, $password, $db_name);
 
-#VS
-
-#A conection que eu estava a criar $manager = new mysqli($host, $user, $password, $db_name);
 
 if($manager->connect_error){
     die("Erro na conexion " . $manager->connect_error);
