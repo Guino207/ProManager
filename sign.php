@@ -21,14 +21,14 @@ if($_POST['cadastrar']){
         $has = password_hash($senha ,PASSWORD_DEFAULT);
 
         $sql = "INSERT INTO user(name,email,password) VALUES(?,?,?)";
-        $stmt = $mn->prepare($sql);
+        $stmt = $mana->prepare($sql);
         $stmt->bind_param("sss",$name,$email,$has);
 
         if($stmt->execute){
             header("Location: index.php");
             exit();
         }else{
-            $mensagem = "Erro " .$mn->error;
+            $mensagem = "Erro " .$mana->error;
         }
         $stmt->close();
     }
@@ -39,7 +39,7 @@ if(isset($_POST['login'])){
     $password = $_POST['password'];
 
     $sql = "SELECT id,name, email password FROM user WHERE email = ?";
-    $stmt = $mn->prepare($sql);
+    $stmt = $mana->prepare($sql);
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();

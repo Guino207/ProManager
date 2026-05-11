@@ -1,13 +1,13 @@
 <?php
 $host = "localhost";
-$db_name = "ManaGer";
+$db_name = "Manager";
 $user = "root";
-$password = "Mysql123";
+$password = "mysql123";
 
-$mn = new mysqli($host, $db_name, $user, $password);
+$manager = new mysqli($host, $db_name, $user, $password);
 
-if($mn->connect_error()){
-    die("Erro na conexion " . $mn->connect_error);
+if($manager->connect_error){
+    die("Erro na conexion " . $manager->connect_error);
 }else{
     echo "";
 }
