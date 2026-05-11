@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 
-if($_POST['cadastrar']){
+if(isset($_POST['cadastrar'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
@@ -125,5 +125,7 @@ if(isset($_POST['login'])){
             </div>
         </div>
     </div>
+
+    <script src="./assets/script/sign.js"></script>
 </body>
 </html>
