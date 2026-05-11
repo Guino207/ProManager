@@ -1,5 +1,67 @@
 <?php
+session_start();
 
+require_once 'conectar.php';
+
+error_reporting(E_ALL);
+init_set('display_errors', 1);
+
+
+if($_POST['cadastrar']){
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $confirmar_senha = $_POST['password'];
+
+    if(empty($name) or empty($email) or empty($senha) or empty($password)){
+        $mensagem = "Precisa preencher todos os campos";
+    }elseif ($senha != $confirmar_senha){
+        $error = "Senhas não são iguais";
+    }else{
+        $has = password_hash($senha ,PASSWORD_DEFAULT);
+
+        $sql = "INSERT INTO user(name,email,password) VALUES(?,?,?)";
+        $stmt = $mn->prepare($sql);
+        $stmt->bind_param("sss",$name,$email,$has);
+
+        if($stmt->execute){
+            header("Location: index.php");
+            exit();
+        }else{
+            $mensagem = "Erro " .$mn->error;
+        }
+        $stmt->close();
+    }
+}
+
+if(isset($_POST['login'])){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT id,name, email password FROM user WHERE email = ?";
+    $stmt = $mn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if($result->num_rows === 1){
+        $usuario = $result->fect_assoc();
+
+        if(password_verify($senha, $usuario['password'])){
+            $_SESSION['usuario_id'] = $usuario['id'];
+            $_SESSION['usuario_nome'] = $usuario['name'];
+            $_SESSION['usuario_email'] = $usuario['email'];
+
+            header("Location: dashboard.php");
+            exit();
+        }else{
+            $error = "Senha incorreta";
+        }
+    }else{
+        $error = "Usuário não encontrado";
+    }
+    $stmt->close();
+}
 
 ?>
 
