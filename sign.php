@@ -115,16 +115,19 @@ if(isset($_POST['login'])){
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-painel toggle-left">
-                    <h1>Bem-Vindo de volta!</h1>
+                    <h1>Bem-Vindo</h1>
                     <button class="hidden" id="login">login</button>
                 </div>
                 <div class="toggle-painel toggle-right">
-                    <h1>Olá, ADM!</h1>
+                    <img src="./assets/img/" alt="logotipo" heigth="400px" width="200px">
+                    <h2>Bem vindo ao ProManager</h2>
                     <button class="hidden" id="cadastro">cadastrar</button>
                 </div>
             </div>
         </div>
     </div>
+
+</div>
 
     <script src="./assets/script/sign.js"></script>
 </body>
