@@ -24,7 +24,7 @@ if(isset($_POST['cadastrar'])){
         $stmt = $manager->prepare($sql);
         $stmt->bind_param("sss",$name,$email,$has);
 
-        if($stmt->execute){
+        if($stmt->execute()){
             header("Location: index.php");
             exit();
         }else{
@@ -36,23 +36,23 @@ if(isset($_POST['cadastrar'])){
 
 if(isset($_POST['login'])){
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $senha = $_POST['password'];
 
-    $sql = "SELECT id,name, email password FROM user WHERE email = ?";
+    $sql = "SELECT id,name, email, password FROM user WHERE email = ?";
     $stmt = $manager->prepare($sql);
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if($result->num_rows === 1){
-        $usuario = $result->fect_assoc();
+        $usuario = $result->fetch_assoc();
 
         if(password_verify($senha, $usuario['password'])){
             $_SESSION['usuario_id'] = $usuario['id'];
-            $_SESSION['usuario_nome'] = $usuario['name'];
+            $_SESSION['usuario_name'] = $usuario['name'];
             $_SESSION['usuario_email'] = $usuario['email'];
 
-            header("Location: dashboard.php");
+            header("Location: index.php");
             exit();
         }else{
             $error = "Senha incorreta";
