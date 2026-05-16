@@ -316,6 +316,6 @@ h3{
     </div>
  </div>
 
-<script src="./assets/script/other.js"></script>
+<script src="./assets/script/page.js"></script>
 </body>
 </html>
