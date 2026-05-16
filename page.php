@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'conectar.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -55,19 +56,19 @@ session_start();
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="header"><h3>PROJETOS ATIVOS</h3><i class="fas fa-project-diagram"></i></div>
-                <div class="number">12</div>
+                <div class="number"></div>
             </div>
             <div class="stat-card">
                 <div class="header"><h3>EM ANDAMENTO</h3><i class="fas fa-spinner"></i></div>
-                <div class="number">8</div>
+                <div class="number"></div>
             </div>
             <div class="stat-card">
                 <div class="header"><h3>CONCLUÍDOS</h3><i class="fas fa-check-circle"></i></div>
-                <div class="number">24</div>
+                <div class="number"></div>
             </div>
             <div class="stat-card">
                 <div class="header"><h3>MEMBROS</h3><i class="fas fa-users"></i></div>
-                <div class="number">15</div>
+                <div class="number"></div>
             </div>
         </div>
 
@@ -86,6 +87,7 @@ session_start();
                 <div class="project-description">Desenvolvimento do aplicativo mobile para clientes com funcionalidades de login e dashboard.</div>
                 <div class="project-footer"><div><span class="member-avatar">JS</span><span class="member-avatar">MC</span></div><div class="project-date">Termino: 30/06/26</div></div>
             </div>
+
             <div class="project-card">
                 <div class="project-header">
                     <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
@@ -183,24 +185,34 @@ session_start();
 <div id="modalProjeto" class="modal">
     <div class="modal-content">
         <div class="modal-header"><h3><i class="fas fa-plus-circle"></i> Novo Projeto</h3><span class="close-modal" onclick="fecharModal('modalProjeto')">&times;</span></div>
-        <form id="formNovoProjeto">
-            <div class="form-group"><label>Nome do Projeto</label><input type="text" id="projetoNome" placeholder="Digite o nome do projeto" required></div>
-            <div class="form-group"><label>Descrição</label><textarea id="projetoDescricao" placeholder="Descreva o projeto..."></textarea></div>
-            <div class="form-group"><label>Status</label>
-                <select id="projetoStatus">
+        <form id="formNovoProjeto" method="post">
+            <div class="form-group">
+                <label>Nome do Projeto</label>
+                <input type="text" id="projetoNome" placeholder="Digite o nome do projeto" name="nome">
+            </div>
+
+            <div class="form-group">
+                <label>Descrição</label>
+                <textarea id="projetoDescricao" placeholder="Descreva o projeto..." name="descrition">
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label>Status</label>
+                <select id="projetoStatus" name="select">
                     <option value="andamento">Em Andamento</option>
                     <option value="planejamento">Planejamento</option>
                     <option value="pendente">Pendente</option>
                 </select>
             </div>
 
-            <div class="form-group"><label>Data de Vencimento</label>
-                <input type="date" id="projetoData">
+            <div class="form-group">
+                <label>Data de Vencimento</label>
+                <input type="date" id="projetoData" name="data">
             </div>
 
             <div class="form-actions">
                 <button type="button" class="btn-secondary" onclick="fecharModal('modalProjeto')">Cancelar</button>
-                <button type="submit" class="btn-primary">Criar Projeto</button>
+                <button type="submit" class="btn-primary" name="Criar">Criar Projeto</button>
             </div>
         </form>
     </div>
