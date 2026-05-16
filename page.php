@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,81 +9,6 @@
     <title>ProManager - Sistema de Gerenciamento de Projetos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/page.css">
-    <style>
-        /* Espaço para o encerramento de sessão imediata */
-
-  .Terminar {
-    position: absolute;
-    top: 0; 
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(245, 245, 245, 0.63);
-    display: none;
-    align-items: center;
-  }
- 
-.conteudo{
-  position: relative;
-  right: 3px;
-  padding: 2em;
-  border-radius: 10px;
-  width: 50%;
-  max-width: 700px;
-  background-color: white;
-  left: 25%;
-}
-form {
-  padding: 10px;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-  height: 120x;
-}
-form button:hover{
-  background-color: #176B87;
-}
-.buttons{
-  display: flex;
-  gap: 10px;
-}
-.botão-fechar,.botão-save{
-  width: 50%;
-    padding: 10px;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-h3{
-  color: #000;
-  text-align: center;
-  font-family: sans-serif;
-}
-.botão-save {
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 11px;
-  cursor: pointer;
-}
-.botão-fechar{
-  background-color: rgb(245, 245, 245);
-  color: #000;
-  border: none;
-  padding: 10px;
-  border-radius: 11px;
-  cursor: pointer;
-}
-.botão-fechar:hover{
-  background-color: red;
-  color: white;
-}
-    </style>
 </head>
 <body>
 
