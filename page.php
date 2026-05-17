@@ -27,7 +27,7 @@ require_once 'conectar.php';
 
 <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
-        <img src="./assets/img/Screenshot from 2026-05-16 16-09-02.png" alt="" width="150px" height="150px">
+        <img src="./assets/Logo.png" alt="" width="150px" height="150px">
         <h2>ProManager</h2>
     </div>
     <ul class="sidebar-menu">
