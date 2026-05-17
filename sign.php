@@ -25,7 +25,7 @@ if(isset($_POST['cadastrar'])){
         $stmt->bind_param("sss",$name,$email,$has);
 
         if($stmt->execute()){
-            header("Location: index.php");
+            header("Location: page.php");
             exit();
         }else{
             $mensagem = "Erro " .$manager->error;
@@ -52,7 +52,7 @@ if(isset($_POST['login'])){
             $_SESSION['usuario_name'] = $usuario['name'];
             $_SESSION['usuario_email'] = $usuario['email'];
 
-            header("Location: index.php");
+            header("Location: page.php");
             exit();
         }else{
             $error = "Senha incorreta";
