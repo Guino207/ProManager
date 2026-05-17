@@ -25,6 +25,7 @@ if(isset($_POST['cadastrar'])){
         $stmt->bind_param("sss",$name,$email,$has);
 
         if($stmt->execute()){
+            $_SESSION['usuario_name'] = $usuario['name'];
             header("Location: page.php");
             exit();
         }else{
