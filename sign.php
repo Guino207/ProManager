@@ -39,7 +39,7 @@ if(isset($_POST['login'])){
     $email = $_POST['email'];
     $senha = $_POST['password'];
 
-    $sql = "SELECT id,name, email, password FROM user WHERE email = ?";
+    $sql = "SELECT id,name, password FROM user WHERE email = ?";
     $stmt = $manager->prepare($sql);
     $stmt->bind_param("s", $email);
     $stmt->execute();

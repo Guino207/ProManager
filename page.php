@@ -41,13 +41,13 @@ require_once 'conectar.php';
     </ul>
 </div>
 
-<!-- MAIN CONTENT -->
+
 <div class="main-content" id="mainContent">
     
     
     <div class="top-bar">
         <div class="page-title" id="pageTitle">
-            <h1>Bem-vindo, Guilherme Filipe</h1>
+            <h1>Bem-vindo </h1>
         </div>
     </div>
 
@@ -109,18 +109,18 @@ require_once 'conectar.php';
         </div>
     </div>
 
-    <!--  Pagina de projetos  -->
+
     <div id="page-projetos" class="page">
         <div class="section-title">
             <h2><i class="fas fa-project-diagram"></i> Todos os Projetos</h2>
             <button class="btn-primary" id="btnNovoProjetoProjetos"><i class="fas fa-plus"></i> Novo Projeto</button>
         </div>
         <div class="projects-grid" id="allProjectsGrid">
-            <!-- Mesmos projetos do dashboard -->
+
         </div>
     </div>
 
-    <!--  Pagina de tarefas  -->
+
     <div id="page-tarefas" class="page">
         <div class="section-title">
             <h2><i class="fas fa-tasks"></i>Tarefas</h2>
@@ -140,7 +140,7 @@ require_once 'conectar.php';
         </div>
     </div>
 
-    <!--  Pagina de adicionar equipa  -->
+
     <div id="page-equipe" class="page">
         <div class="section-title">
             <h2><i class="fas fa-users"></i> Membros da Equipe</h2>
@@ -162,7 +162,7 @@ require_once 'conectar.php';
 
 
 
-    <!--  Pagina de relatorios  -->
+ 
     <div id="page-relatorios" class="page">
         <div class="stats-grid">
             <div class="stat-card"><div class="header"><h3>PROJETOS CONCLUÍDOS</h3></div><div class="number">24</div></div>
@@ -181,7 +181,7 @@ require_once 'conectar.php';
     </div>
 
 
-<!-- MODAL NOVO PROJETO -->
+
 <div id="modalProjeto" class="modal">
     <div class="modal-content">
         <div class="modal-header"><h3><i class="fas fa-plus-circle"></i> Novo Projeto</h3><span class="close-modal" onclick="fecharModal('modalProjeto')">&times;</span></div>
