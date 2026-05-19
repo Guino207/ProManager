@@ -241,21 +241,6 @@ require_once 'conectar.php';
     </div>
 </div>
 
-<!-- Terminar a session dentro do sistema -->
- <div class="Terminar" id="mensagem">
-    <div class="conteudo">
-        <div class="">
-            <form action="" id="mensagem" method="post">
-                <h3>Tens a certeza de que pretendes terminar a session</h3><br><br><br><br>
-                <div class="buttons">
-                    <button class="botão-save">Sim</button>
-                    <button class="botão-fechar" onclick="closeForm()">Não</button>
-                </div>
-            </form>
-        </div>
-    </div>
- </div>
-
 <script src="./assets/script/page.js"></script>
 </body>
 </html>
