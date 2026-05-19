@@ -49,15 +49,3 @@
 
     document.getElementById('allProjectsGrid').innerHTML = document.getElementById('projectsGrid').innerHTML;
 
-    //Terminando a session
-    function loghout(){
-        document.getElementById('mensagem').style.display = 'flex';
-    }
-
-    function openForm(){
-        document.getElementById('form').style.display = 'flex';
-    }
-
-    function closeForm(){
-        document.getElementById('form').style.display = 'none';
-    }

@@ -1,4 +1,15 @@
 <?php 
+session_start();
+
+if(isset($_POST['Yes'])){
+    session_destroy();
+    session_unset();
+
+    header("Location: sign.php");
+}
+elseif(isset($_POST['Not'])){
+    header("Location: page.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +17,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logout</title>
-    <link rel="stylesheet" href="./assets/css/page.css">
+    <link rel="stylesheet" href="./assets/css/close.css">
 </head>
 <body>
 
@@ -16,8 +27,8 @@
             <form action="" id="mensagem" method="post">
                 <h3>Tens a certeza de que pretendes terminar a session</h3><br><br><br><br>
                 <div class="buttons">
-                    <button class="botão-save">Sim</button>
-                    <button class="botão-fechar" onclick="closeForm()">Não</button>
+                    <button class="botão-save" name="Yes">Sim</button>
+                    <button class="botão-fechar" name="Not">Não</button>
                 </div>
             </form>
         </div>

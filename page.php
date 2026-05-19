@@ -36,7 +36,7 @@ require_once 'conectar.php';
         <li data-page="tarefas"><a style="font-size: 20px;">Tarefas</a></li><br>
         <li data-page="equipe"><a style="font-size: 20px;">Equipe</a></li><br>
         <li data-page="relatorios"><a style="font-size: 20px;">Relatórios</a></li><br>
-        <li data-page="relatorios" onclick="loghout()"><a style="font-size: 20px;" href="">Terminar sessão</a></li>
+        <li data-page="relatorios"><a style="font-size: 20px;" href="close.php">Terminar sessão</a></li>
 
     </ul>
 </div>
