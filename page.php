@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once 'conectar.php';
+require 'conectar.php';
+include 'script.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -198,7 +199,7 @@ require_once 'conectar.php';
             </div>
             <div class="form-group">
                 <label>Status</label>
-                <select id="projetoStatus" name="select">
+                <select id="projetoStatus" name="selecionar">
                     <option value="andamento">Em Andamento</option>
                     <option value="planejamento">Planejamento</option>
                     <option value="pendente">Pendente</option>
@@ -207,7 +208,7 @@ require_once 'conectar.php';
 
             <div class="form-group">
                 <label>Data de Vencimento</label>
-                <input type="date" id="projetoData" name="data">
+                <input type="date" id="projetoData" name="periodo">
             </div>
 
             <div class="form-actions">

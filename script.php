@@ -1,28 +1,23 @@
 <?php
-session_start();
+
 require 'conectar.php';
 
-function Apresentation(){
-    if(isset($_POST['Criar'])){
-        $nome = $_POST['nome'];
-        $descrition = $_POST['descrition'];
-        $select = $_POST['select'];
-        $data = $_POST['data'];
+if(isset($_POST['Criar'])){
+    $nome = $_POST['nome'];
+    $descrition = $_POST['descrition'];
+    $selecionar = $_POST['selecionar'];
+    $periodo = $_POST['periodo'];
 
+    if(empty($nome) or empty($descrition) or empty($selecionar) or empty($periodo)){
+        $error = "Precisas preencher tudo";
+    }else{
+        $sql = "INSERT INTO projecto(nome,descrition,selecionar,periodo) VALUES(?,?,?,?)";
+        $sql = "INSERT INTO projecto(nome,descrition,selecionar,periodo) VALUES('Guilherme','Boa pessoa aqui','Designer','12/06/2025')";
+        $stmt = $manager->prepare($sql);
+        $stmt->bind_param("sss",$nome,$descrition,$selecionar,$periodo);
+        $stmt->execute();
+        $resultado = $stmt->get_resultado();
 
-        if(empty($nome) or empty($descrition) or empty($select) or empty($data)){
-            $error = "Precisas preencher tudo";
-        }else{
-            $sql = "INSERT INTO projeto(nome,descrition,select,data) VALUES(?,?,?,?)";
-            $stmt = $manager->prepare($sql);
-            $stmt->bind_param("ssss", $nome, $descrition, $select, $data);
-            $stmt->execute();
-            $resultado = $stmt->get_resultado();
-
-            $_SESSION['nomeProjeto'] = $projeto['nome'];
-            $_SESSION['descritionProjeto'] = $projeto['descrition'];
-            $_SESSION['selectProjeto'] = $projeto['select'];
-            $_SESSION['dataProjeto'] = $projeto['data'];
-        }
+        echo "Funcionou!!";
     }
 }
