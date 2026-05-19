@@ -2,8 +2,8 @@
 session_start();
 
 if(isset($_POST['Yes'])){
-    session_destroy();
     session_unset();
+    session_destroy();
 
     header("Location: sign.php");
 }
